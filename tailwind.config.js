@@ -9,10 +9,6 @@ export default {
         './resources/views/**/*.blade.php',
     ],
 
-    safelist: [
-        'bg-[#f15e09ff]', // .env'deki background rengine karşılık gelen sınıf
-    ],
-
     theme: {
         extend: {
             fontFamily: {

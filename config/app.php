@@ -16,7 +16,7 @@ return [
     |
     */
 
-    'name' => env('APP_NAME', 'Laravel'),
+    'name' => env('APP_NAME', 'Turuncu'),
 
     /*
     |--------------------------------------------------------------------------
@@ -159,6 +159,7 @@ return [
         /*
          * Package Service Providers...
          */
+        Laravel\Fortify\FortifyServiceProvider::class, // Fortify servisi eklendi
 
         /*
          * Application Service Providers...
@@ -184,10 +185,6 @@ return [
     'aliases' => Facade::defaultAliases()->merge([
         // 'Example' => App\Facades\Example::class,
     ])->toArray(),
-
-
-    // Laravel varsayılanları...
-    'name' => env('APP_NAME', 'Turuncu'),
 
     // Senin özel ayarların
     'company' => [
