@@ -159,8 +159,6 @@ return [
         /*
          * Package Service Providers...
          */
-        Laravel\Fortify\FortifyServiceProvider::class, // Fortify servisi eklendi
-
         /*
          * Application Service Providers...
          */
@@ -186,10 +184,12 @@ return [
         // 'Example' => App\Facades\Example::class,
     ])->toArray(),
 
-    // Senin özel ayarların
+    // Firma özel ayarları
     'company' => [
         'name' => env('COMPANY_NAME', 'Turuncu'),
         'logo' => env('COMPANY_LOGO', 'assets/images/turuncu.png'),
-        'color' => env('COMPANY_BG', '#e9760bff'),
+        'color' => env('COMPANY_BG', '#f15e09ff'),
+        'background_image' => env('COMPANY_BG_IMAGE', ''), // boşsa kullanılmaz
+        'designer' => env('DESIGNER_NAME', 'Elzem'),
     ],
 ];

@@ -12,7 +12,7 @@ class User extends Authenticatable
     use HasApiTokens, HasFactory, Notifiable;
 
     /**
-     * The attributes that are mass assignable.
+     * Toplu atama yapılabilecek alanlar.
      *
      * @var array<int, string>
      */
@@ -20,11 +20,11 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
-        'role',  // role eklendi
+        'role',  // Kullanıcının rolü ('admin', 'user' vb.)
     ];
 
     /**
-     * The attributes that should be hidden for serialization.
+     * Gizlenecek alanlar (serialization sırasında).
      *
      * @var array<int, string>
      */
@@ -34,22 +34,30 @@ class User extends Authenticatable
     ];
 
     /**
-     * The attributes that should be cast.
+     * Attribute cast işlemleri.
      *
      * @var array<string, string>
      */
     protected $casts = [
         'email_verified_at' => 'datetime',
-        'password' => 'hashed',
+        'password' => 'hashed',  // Laravel 10+ otomatik hash için
     ];
 
-    // Kullanıcı admin mi?
+    /**
+     * Kullanıcı admin mi kontrolü.
+     *
+     * @return bool
+     */
     public function isAdmin(): bool
     {
         return $this->role === 'admin';
     }
 
-    // Kullanıcı normal user mı?
+    /**
+     * Kullanıcı normal user mı kontrolü.
+     *
+     * @return bool
+     */
     public function isUser(): bool
     {
         return $this->role === 'user';
